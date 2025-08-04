@@ -28,37 +28,39 @@ This project was designed to explore how to securely access AWS services like S3
 ---
 ## 🛠️ Deployment Steps
 
-### ✅ Step 1 – Creating a VPC, subnets, route tables and an Internet Gateway
+### ✅ Step 1 – Creating a VPC, Subnets, Route Tables, and an Internet Gateway
 
-Created a VPC named my_VPC with:
-- IPv4 CIDR Block: `192.168.0.0/26`  
-- No IPv6 CIDR Block
-- 
-I created an internet geteway with the Name: `MyInternetGateway` and attach it to `myVPC`
+I created a VPC named `my_VPC` with the following settings:
+- **IPv4 CIDR Block:** `192.168.0.0/26`
+- **IPv6:** Not assigned
 
-I created two subnets:
-- **Public Subnet**  
-  - Name: `Public Subnet`  
-  - AZ: `us-east-1a`  
-  - CIDR Block: `192.168.0.1/27`
-  - Auto-assignn public IPv4 adresses is enabled
-- **Private Subnet**  
-  - Name: `Private Subnet`  
-  - AZ: `us-east-1b`  
-  - CIDR Block: `192.168.0.32/27`
+Then, I created an Internet Gateway:
+- **Name:** `MyInternetGateway`
+- **Attached to:** `my_VPC`
 
-I created Route Tables and Associate them with the subnets 
-- **Public Route Table**  
-  - Name: `PublicRouteTable`  
-  - Associated with: `Public Subnet`  
-  - Route: `0.0.0.0/0 → MyInternetGateway`
+Next, I created two subnets:
+- **Public Subnet**
+  - **Name:** `Public Subnet`
+  - **Availability Zone:** `us-east-1a`
+  - **CIDR Block:** `192.168.0.1/27`
+  - **Auto-assign Public IPv4:** Enabled
+- **Private Subnet**
+  - **Name:** `Private Subnet`
+  - **Availability Zone:** `us-east-1b`
+  - **CIDR Block:** `192.168.0.32/27`
 
-- **Private Route Table**  
-  - Name: `PrivateRouteTable`  
-  - Associated with: `Private Subnet`
+I then created and associated route tables:
+- **Public Route Table**
+  - **Name:** `PublicRouteTable`
+  - **Associated with:** `Public Subnet`
+  - **Route:** `0.0.0.0/0 → MyInternetGateway`
+- **Private Route Table**
+  - **Name:** `PrivateRouteTable`
+  - **Associated with:** `Private Subnet`
 
-🗺️ **VPC Resource Map** 
+🗺️ **VPC Resource Map**  
 <img width="1455" height="352" alt="16" src="https://github.com/user-attachments/assets/da58c593-ee6b-4b94-ae0e-c018d5420ae3" />
+
 
 
 ### ✅ Step 2 – Creating Security Groups
