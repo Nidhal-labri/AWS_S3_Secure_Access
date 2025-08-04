@@ -68,6 +68,7 @@ I created two security groupes:
 
 - **Bastion Security Group (Bastion-SG)**  
   - Inbound Rules:
+
 | Type    | Protocol | Port Range | Source     |
 |---------|----------|------------|------------|
 | SSH     | TCP      | 22         | 0.0.0.0/0  |
@@ -76,6 +77,7 @@ I created two security groupes:
 
 - **Endpoint Security Group (Endpoint-SG)**  
   - Inbound Rule:
+
 | Type | Protocol | Port Range | Source       |
 |------|----------|------------|--------------|
 | SSH  | TCP      | 22         | `Bastion-SG` |
