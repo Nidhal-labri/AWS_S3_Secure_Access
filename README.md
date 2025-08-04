@@ -62,20 +62,23 @@ I then created and associated route tables:
 <img width="1455" height="352" alt="16" src="https://github.com/user-attachments/assets/da58c593-ee6b-4b94-ae0e-c018d5420ae3" />
 
 
-
 ### ✅ Step 2 – Creating Security Groups
 
 I created two security groupes:
 
 - **Bastion Security Group (Bastion-SG)**  
   - Inbound Rules:
-    - SSH: `0.0.0.0/0`
-    - HTTP: `0.0.0.0/0`
-    - HTTPS: `0.0.0.0/0`
+| Type    | Protocol | Port Range | Source     |
+|---------|----------|------------|------------|
+| SSH     | TCP      | 22         | 0.0.0.0/0  |
+| HTTP    | TCP      | 80         | 0.0.0.0/0  |
+| HTTPS   | TCP      | 443        | 0.0.0.0/0  |
 
 - **Endpoint Security Group (Endpoint-SG)**  
   - Inbound Rule:
-    - SSH: `Source = Bastion-SG`
+| Type | Protocol | Port Range | Source       |
+|------|----------|------------|--------------|
+| SSH  | TCP      | 22         | `Bastion-SG` |
       
 
 ### ✅ Step 3 – Launching the Bastion Host and Endpoint Instance
