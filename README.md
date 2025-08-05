@@ -10,7 +10,7 @@ This project was designed to explore how to securely access AWS services like S3
 ---
 ## 🗺️ Architecture Diagram
 
-<img width="1920" height="1080" alt="architecture" src="https://github.com/user-attachments/assets/899d3143-1525-4cca-b382-464d4dd00197" />
+<img width="1920" height="1080" alt="architecture" src="https://github.com/user-attachments/assets/eb6ceec9-3154-4c14-bd9f-9662dadcc3a3" />
 
 ---
 
