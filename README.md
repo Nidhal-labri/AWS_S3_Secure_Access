@@ -126,7 +126,7 @@ I then ran aws configure to set up my AWS credentials:
 
 <img width="721" height="107" alt="20" src="https://github.com/user-attachments/assets/1172a199-14b9-43a6-9969-328929d55550" />
 
-✅ After configuration, I was able to securely access, list, and interact with S3 buckets from the private instance — without internet access:
+✅ **After configuration, I was able to securely access, list, and interact with S3 buckets from the private instance**
 
 <img width="662" height="52" alt="21" src="https://github.com/user-attachments/assets/e9b981e8-3299-49c6-9821-b7c4a16bd038" />
 
