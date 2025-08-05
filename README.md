@@ -108,9 +108,7 @@ Launched **two t2.micro instances** using **Amazon Linux 2 AMI** inside `my_VPC`
 ---
 ### ✅ Step 4 – SSH Access via Bastion Host and Access S3 buckets 
 
-First, I connected to the Bastion Host via SSH:
-<img width="1919" height="828" alt="19" src="https://github.com/user-attachments/assets/d409b815-f4e8-4363-8bc6-d8c973cda56c" />
-
+First, I connected to the Bastion Host via SSH.
 Then, I created and secured my key file using: 
 ```bash
 vi myKey.pem        # Paste your private key content inside the file, then save and exit
