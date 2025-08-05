@@ -1,4 +1,4 @@
-# 🔐 AWS Project: Creating Secure Access to S3 via VPC Endpoint and Bastion Host
+<img width="1920" height="1080" alt="architecture" src="https://github.com/user-attachments/assets/84217071-0b8d-4879-a664-d8e46cbe567c" /># 🔐 AWS Project: Creating Secure Access to S3 via VPC Endpoint and Bastion Host
 
 This project demonstrates how I securely accessed Amazon S3 from an EC2 instance in a private subnet using a **VPC Gateway Endpoint** and a **Bastion Host (Jump Box)** for SSH access.
 
@@ -10,7 +10,7 @@ This project was designed to explore how to securely access AWS services like S3
 ---
 ## 🗺️ Architecture Diagram
 
-<img width="1920" height="1080" alt="architecture" src="https://github.com/user-attachments/assets/eb6ceec9-3154-4c14-bd9f-9662dadcc3a3" />
+<img width="1920" height="1080" alt="architecture" src="https://github.com/user-attachments/assets/383bdf8b-4463-448e-94f4-13d5586fa876" />
 
 ---
 
