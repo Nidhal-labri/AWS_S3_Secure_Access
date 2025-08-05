@@ -28,7 +28,7 @@ This project was designed to explore how to securely access AWS services like S3
 ---
 ## 🛠️ Deployment Steps
 
-### ✅ Step 1 – Creating a VPC, Subnets, Route Tables, and an Internet Gateway
+### ✅ Step 1 – Creating a VPC, Subnets, Route Tables, Internet Gateway and VPC endpoint.
 
 I created a VPC named `my_VPC` with the following settings:
 - **IPv4 CIDR Block:** `192.168.0.0/26`
@@ -60,6 +60,8 @@ I then created and associated route tables:
 
 🗺️ **VPC Resource Map**  
 <img width="1455" height="352" alt="16" src="https://github.com/user-attachments/assets/da58c593-ee6b-4b94-ae0e-c018d5420ae3" />
+
+I also created a **Gateway VPC Endpoint** for the service `com.amazonaws.us-east-1.s3` within `my_VPC`, and attached it to the `PrivateRouteTable`.
 
 
 ### ✅ Step 2 – Creating Security Groups
@@ -104,43 +106,29 @@ Launched **two t2.micro instances** using **Amazon Linux 2 AMI** inside `my_VPC`
 
 
 ---
-### ✅ Step 4 – SSH Access via Bastion Host
+### ✅ Step 4 – SSH Access via Bastion Host and Access S3 buckets 
 
+First, I connected to the Bastion Host via SSH:
+<img width="1919" height="828" alt="19" src="https://github.com/user-attachments/assets/d409b815-f4e8-4363-8bc6-d8c973cda56c" />
+
+Then, I created and secured my key file using: 
 ```bash
-# 1. SSH into Bastion Host
-ssh -i myKey.pem ec2-user@<Bastion_Public_IP>
-
-# 2. On the Bastion Host, create and secure your key file
-vi myKey.pem  # Paste private key content
+vi myKey.pem        # Paste your private key content inside the file, then save and exit
 chmod 400 myKey.pem
-
-# 3. SSH into the Endpoint Instance from the Bastion Host
-ssh -i myKey.pem ec2-user@<Endpoint_Private_IP>
 ```
 
-✅ Successfully accessing the private instance via the bastion confirms that the security groups and routing are correctly configured.
+Next, I SSH'd into the Endpoint Instance from the Bastion Host
+✅ Successfully accessing the private instance via the Bastion Host confirms that the Security Groups and routing are correctly configured.
 
----
+<img width="1916" height="820" alt="image" src="https://github.com/user-attachments/assets/275d1986-e83f-4bc5-ab43-a960ec580900" />
 
-### 🧪 Step 10 – Testing Connectivity
+I then ran aws configure to set up my AWS credentials:
 
-Connected to `public_instance` using EC2 Instance Connect.
+<img width="721" height="107" alt="20" src="https://github.com/user-attachments/assets/1172a199-14b9-43a6-9969-328929d55550" />
 
-From the public instance, tested:
+✅ After configuration, I was able to securely access, list, and interact with S3 buckets from the private instance — without internet access:
 
-- ✅ Connectivity to the private instance  
-  ```bash
-  ping 10.0.2.128 -c 5
-  ```
-
-- ✅ Connectivity to the internet  
-  ```bash
-  ping google.com -c 5
-  ```
-
-📸 _See test images below._
-
-✅ These results confirm that the VPC configuration, security group rules, and routing tables are working correctly.
+<img width="662" height="52" alt="21" src="https://github.com/user-attachments/assets/e9b981e8-3299-49c6-9821-b7c4a16bd038" />
 
 ---
 
